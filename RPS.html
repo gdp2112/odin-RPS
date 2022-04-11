@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <title>JS testing</title>
+    </head>
+    <body>
+        <p></p>
+    </body>
+    <script>
+        const para = document.querySelector('p');
+        const choice = [
+            'rock',
+            'paper',
+            'scissors'
+        ];
+
+        function computerPlay(){
+            const compChoice = Math.floor(Math.random()*choice.length);
+            let compSelection = choice[compChoice];
+        }
+
+        function rpsRound(playerSelection, compSelection){
+                let playerSelection = toLowerCase(prompt("Enter either Rock, Paper, or Scissors:"));
+                if  (playerSelection === compSelection){
+                    para.textContent = "It\'s a tie! Try again!";
+                    rpsRound();
+                }
+                else if (playerSelection === 'rock' && compSelection === 'scissors'){
+                    para.textContent = "You win!"
+                }
+        }
+        rpsRound();
+    </script>
+</html>
