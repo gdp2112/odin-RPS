@@ -2,34 +2,60 @@
 <html lang="eng">
     <head>
         <meta charset="UTF-8">
-        <title>JS testing</title>
+        <title>Odin Rock Paper Scissors</title>
     </head>
     <body>
         <p></p>
     </body>
     <script>
         const para = document.querySelector('p');
-        const choice = [
-            'rock',
-            'paper',
-            'scissors'
-        ];
 
-        function computerPlay(){
-            const compChoice = Math.floor(Math.random()*choice.length);
+        var match = function(){
+            let playerSelection = prompt('Rock, Paper, or Scissors?: ');
+            console.log(playerSelection);
+            const choice = [
+                'rock',
+                'paper',
+                'scissors'
+            ];
+
+            
+
+            let compChoice = Math.floor(Math.random()*choice.length);
             let compSelection = choice[compChoice];
+            console.log(compSelection);
+
+            return{
+                "compSelection" : compSelection,
+                "playerSelection" : playerSelection
+            };
         }
 
-        function rpsRound(playerSelection, compSelection){
-                let playerSelection = toLowerCase(prompt("Enter either Rock, Paper, or Scissors:"));
-                if  (playerSelection === compSelection){
-                    para.textContent = "It\'s a tie! Try again!";
-                    rpsRound();
-                }
-                else if (playerSelection === 'rock' && compSelection === 'scissors'){
-                    para.textContent = "You win!"
-                }
+        function result(compSelection, playerSelection){
+            if (compSelection == 'rock' && playerSelection.toLowerCase == 'scissors'){
+                alert('You lose!');
+            } else if  (compSelection == 'paper' && playerSelection.toLowerCase == 'rock'){
+                alert('You lose!');
+            } else if (compSelection == 'scissors' && playerSelection.toLowerCase == 'paper'){
+                alert('You lose!');
+            } else if (compSelection == 'rock' && playerSelection.toLowerCase == 'paper'){
+                alert('You win!');
+            } else if (compSelection == 'paper' && playerSelction.toLowerCase == 'scissors'){
+                alert('You win!');
+            } else if (compSelection == 'scissors' && playerSelection.toLowerCase == 'rock'){
+                alert('You win!');
+            } else if (compSelection == playerSelection.toLowerCase){
+                alert('Draw!');
+            }
         }
-        rpsRound();
+        function game(){
+            for (let i = 1; i <= 1; i++){
+                var opt = match()
+                result(opt.compSelection, opt.playerSelection)
+            }
+        }
+        
+        game();
+        
     </script>
 </html>
